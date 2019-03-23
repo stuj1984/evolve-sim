@@ -5,20 +5,29 @@ let creatures = []
 const Render = Matter.Render
 const engine = Matter.Engine.create();
 const world = engine.world;
-const generationPeriod = 25;
+const generationPeriod = 4;
 let generation = new Generation(30);
 let settled = false;
 
+const fps = 480;
+setInterval(function() { Matter.Engine.update(engine, 1000 / fps); }, 1000 / fps);
+
+let history = [];
+
+function logHistory(generation) {
+	history.push(generation);
+	console.log(history);
+}
+
 function setup() {
-	let canvas = createCanvas(windowWidth * 0.95, windowHeight * 0.95);
-	frameRate(60);
+	let canvas = createCanvas(2000, (windowHeight - 200) * 0.95);
+	frameRate(fps);
 	rectMode(CENTER);
 	textSize(18);
 	
-	
-	
 	// Initialize Generation
 	generation.initialize(Person);
+
 	generation.species.forEach((creature) => { creature.add_to_world(world) });
 
 	// Boundary
@@ -34,7 +43,8 @@ function setup() {
 	// Restart Generation after 5 seconds
 	setInterval(() => {
 		generation.evolve();
-		console.log(generation.avg_score);
+		// console.log(generation.avg_score);
+		logHistory(generation);
 		settled = false;
 	}, generationPeriod * 1000);
 

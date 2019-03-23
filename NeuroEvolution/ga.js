@@ -68,7 +68,7 @@ class Generation {
         this.species.forEach((creature) => { total_score += creature.score });
 
         // Assign Fitness to each creature
-        this.progress = (total_score / this.population) - this.avg_score
+        this.progress = (total_score / this.population) - this.avg_score;
         this.avg_score = total_score / this.population;
         for (let i = 0; i < this.population; i++) {
             this.species[i].fitness = this.species[i].score / total_score;
@@ -87,7 +87,7 @@ class Generation {
                 total_fitness += this.species[j].fitness;
 
                 // score_x[j][1] = this.species[j].fitness;
-                score_x[j][1] =total_fitness;
+                score_x[j][1] = total_fitness;
                 // if(this.species[j].fitness < 0.2){
                 //     score_x[j,1] = 0;
                 // }

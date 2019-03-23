@@ -166,44 +166,45 @@ class Person {
 	}
 
 	show() {
-		fill(this.colors[0])
+		fill(this.colors[0]);
+		let parts = 4;
 		beginShape();
-		for (let i = 0; i < 4; i++) {
+		for (let i = 0; i < parts; i++) {
 			vertex(this.upper_left_leg.vertices[i].x, this.upper_left_leg.vertices[i].y);
 		}
 		endShape();
 
 		fill(this.colors[0])
 		beginShape();
-		for (let i = 0; i < 4; i++) {
+		for (let i = 0; i < parts; i++) {
 			vertex(this.upper_right_leg.vertices[i].x, this.upper_right_leg.vertices[i].y);
 		}
 		endShape();
 
 		fill(this.colors[0])
 		beginShape();
-		for (let i = 0; i < 4; i++) {
+		for (let i = 0; i < parts; i++) {
 			vertex(this.lower_left_leg.vertices[i].x, this.lower_left_leg.vertices[i].y);
 		}
 		endShape();
 
 		fill(this.colors[0])
 		beginShape();
-		for (let i = 0; i < 4; i++) {
+		for (let i = 0; i < parts; i++) {
 			vertex(this.lower_right_leg.vertices[i].x, this.lower_right_leg.vertices[i].y);
 		}
 		endShape();
 
 		fill(this.colors[0])
 		beginShape();
-		for (let i = 0; i < 4; i++) {
+		for (let i = 0; i < parts; i++) {
 			vertex(this.lower_3_leg.vertices[i].x, this.lower_3_leg.vertices[i].y);
 		}
 		endShape();
 
 		fill(this.colors[0])
 		beginShape();
-		for (let i = 0; i < 4; i++) {
+		for (let i = 0; i < parts; i++) {
 			vertex(this.upper_3_leg.vertices[i].x, this.upper_3_leg.vertices[i].y);
 		}
 		endShape();
